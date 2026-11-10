@@ -30,7 +30,7 @@
   ::-webkit-scrollbar-track{background:transparent}
   ::-webkit-scrollbar-thumb{background:rgba(255,255,255,.14);border-radius:6px;border:3px solid transparent;background-clip:content-box}
 
-  /* LAYOUT DESKTOP */
+  /* LAYOUT */
   .app{position:relative;z-index:1;display:grid;grid-template-columns:246px 1fr;grid-template-rows:1fr 96px;gap:10px;height:100vh;padding:10px;transition:grid-template-columns .4s var(--ease)}
   .app.np-open{grid-template-columns:246px 1fr 328px}
   .sidebar{grid-column:1;grid-row:1;display:flex;flex-direction:column;gap:10px;min-height:0}
@@ -54,11 +54,10 @@
   .lib-title{display:flex;align-items:center;gap:12px;background:none;border:none;color:var(--muted);font:inherit;font-size:14px;font-weight:600;cursor:pointer}
   .icon-btn{background:none;border:none;color:var(--muted);width:32px;height:32px;border-radius:50%;display:grid;place-items:center;cursor:pointer;flex-shrink:0}
   .icon-btn:hover{color:#fff;background:rgba(255,255,255,.07)}
-  .icon-btn.on{color:var(--accent)}
   .lib-list{list-style:none;overflow-y:auto;flex:1;padding:0 4px 60px 0}
   .lib-item{display:flex;align-items:center;gap:12px;padding:7px 8px;border-radius:12px;cursor:pointer}
   .lib-item:hover{background:rgba(255,255,255,.06)}
-  .lib-thumb{width:44px;height:44px;border-radius:10px;flex-shrink:0;display:grid;place-items:center;border:1px solid rgba(255,255,255,.14);overflow:hidden}
+  .lib-thumb{width:44px;height:44px;border-radius:10px;flex-shrink:0;display:grid;place-items:center;border:1px solid rgba(255,255,255,.14);overflow:hidden;background-size:cover;background-position:center}
   .lib-thumb img{width:100%;height:100%;object-fit:cover}
   .lib-info{min-width:0}
   .lib-name{font-size:14px;font-weight:500;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -69,7 +68,7 @@
   .search-box svg{color:var(--muted);flex-shrink:0}
   .search-box input{background:none;border:none;outline:none;color:#fff;font:inherit;font-size:14px;width:100%}
   .topbar-spacer{flex:1}
-  .user-chip{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#b9cbff,#6366f1 60%,#d946ef);border:1px solid rgba(255,255,255,.3);color:#0a0c12;font-size:16px;font-weight:800;cursor:pointer;display:grid;place-items:center}
+  .user-chip{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#b9cbff,#6366f1 60%,#d946ef);border:1px solid rgba(255,255,255,.3);color:#0a0c12;font-size:16px;font-weight:800;cursor:pointer;display:grid;place-items:center;overflow:hidden;background-size:cover;background-position:center}
   
   .content{padding:22px 22px 60px}
   .section{margin-bottom:38px}
@@ -89,6 +88,7 @@
   .grid .card:nth-child(3n+2){border-radius:8px 24px 24px 24px}
   .grid .card:nth-child(3n){border-radius:24px 8px 24px 24px}
   .card:hover{transform:translateY(-5px);background:linear-gradient(150deg,rgba(255,255,255,.22),rgba(255,255,255,.07) 45%,rgba(255,255,255,.12))}
+  
   .album-art{width:100%;aspect-ratio:1/1;border-radius:12px;position:relative;overflow:hidden;margin-bottom:12px;display:grid;place-items:center}
   .album-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   .album-art .local-cover-text{font-size:50px;font-weight:800;color:rgba(255,255,255,.9);position:relative;z-index:1}
@@ -101,7 +101,7 @@
   .card:hover .card-play,.card.playing .card-play{opacity:1;transform:translateY(0)}
 
   .profile-card{display:flex;gap:26px;align-items:center;flex-wrap:wrap;padding:32px 34px;border-radius:46px 46px 46px 14px;background:linear-gradient(135deg,rgba(185,203,255,.12),rgba(255,255,255,.02) 60%,rgba(217,70,239,.07));border:1px solid rgba(255,255,255,.11);margin-bottom:36px}
-  .profile-avatar{width:120px;height:120px;border-radius:50%;display:grid;place-items:center;font-size:46px;font-weight:800;color:#0a0c12;background:linear-gradient(135deg,#b9cbff,#6366f1 55%,#d946ef)}
+  .profile-avatar{width:120px;height:120px;border-radius:50%;display:grid;place-items:center;font-size:46px;font-weight:800;color:#0a0c12;background:linear-gradient(135deg,#b9cbff,#6366f1 55%,#d946ef);overflow:hidden;background-size:cover;background-position:center;box-shadow:0 10px 30px rgba(0,0,0,.4)}
   .profile-info{flex:1}
   .profile-info h1{font-size:32px;font-weight:800;letter-spacing:-.02em}
   .profile-bio{font-size:13.5px;color:var(--muted);margin-top:10px;line-height:1.55}
@@ -112,7 +112,7 @@
   .np-big-art .local-cover-text{font-size:60px;font-weight:800;color:rgba(255,255,255,.9);position:relative;z-index:1}
 
   .np-left{display:flex;align-items:center;gap:12px;min-width:0}
-  .np-art{width:56px;height:56px;border-radius:50% 50% 50% 16px;flex-shrink:0;position:relative;overflow:hidden;display:grid;place-items:center;border:1px solid rgba(255,255,255,.15)}
+  .np-art{width:56px;height:56px;border-radius:50% 50% 50% 16px;flex-shrink:0;position:relative;overflow:hidden;display:grid;place-items:center;border:1px solid rgba(255,255,255,.15);background-size:cover;background-position:center}
   .np-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   .np-art .local-cover-text{font-size:20px;font-weight:800;color:white;position:relative;z-index:1}
   .np-meta{min-width:0}
@@ -136,7 +136,7 @@
   .dynamic-bar > *{ position:relative; z-index:1; }
   .db-pulse{width:6px;height:6px;border-radius:50%;background:#34d399;flex-shrink:0;margin-left:2px}
   .dynamic-bar.paused .db-pulse{background:#f59e0b}
-  .db-art{width:34px;height:34px;border-radius:50%;flex-shrink:0;position:relative;overflow:hidden;display:grid;place-items:center;border:1px solid rgba(255,255,255,.35)}
+  .db-art{width:34px;height:34px;border-radius:50%;flex-shrink:0;position:relative;overflow:hidden;display:grid;place-items:center;border:1px solid rgba(255,255,255,.35);background-size:cover;background-position:center}
   .db-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   .db-art .local-cover-text{font-size:14px;font-weight:800;color:white;position:relative;z-index:1}
   .db-info{min-width:0;flex:1}
@@ -145,29 +145,36 @@
   .db-btn{width:30px;height:30px;border-radius:50%;background:#fff;border:none;color:#0a0c12;display:grid;place-items:center;cursor:pointer;flex-shrink:0}
   .db-close{width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.15);border:none;color:#fff;display:grid;place-items:center;cursor:pointer;flex-shrink:0}
 
-  /* TRACK MODAL */
+  /* TRACK MODAL (Efek Nyatu / Overlay) */
   .track-modal{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:20px}
   .track-modal[hidden]{display:none}
   .tm-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.8);backdrop-filter:blur(26px)}
-  .track-card{position:relative;width:min(340px,calc(100vw - 32px));border-radius:40px;background:rgba(30,32,42,.7);box-shadow:0 40px 100px rgba(0,0,0,.7);overflow:hidden;display:flex;flex-direction:column;padding:20px}
-  .tc-bg-blur{position:absolute;inset:-20px;background-size:cover;background-position:center;filter:blur(35px) brightness(0.65);z-index:0}
-  .tc-content{position:relative;z-index:1}
-  .tc-cover-wrapper{width:100%;aspect-ratio:1/1;border-radius:14px;overflow:hidden;position:relative;margin-bottom:18px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.15)}
+  .track-card{position:relative;width:min(340px,calc(100vw - 32px));border-radius:40px;background:#121212;box-shadow:0 40px 100px rgba(0,0,0,.7);overflow:hidden;display:flex;flex-direction:column;padding:0}
+  
+  /* Gambar Blur Latar */
+  .tc-bg-blur{position:absolute;inset:-20px;background-size:cover;background-position:center;filter:blur(40px) brightness(0.6);z-index:0;transform:scale(1.1)}
+  
+  .tc-content{position:relative;z-index:1;display:flex;flex-direction:column;padding:20px}
+  
+  /* Gambar Nyatu (Masking) */
+  .tc-cover-wrapper{width:100%;aspect-ratio:1/1;border-radius:14px;overflow:hidden;position:relative;margin-bottom:-15px;display:grid;place-items:center;-webkit-mask-image:linear-gradient(to bottom, black 60%, transparent 100%);mask-image:linear-gradient(to bottom, black 60%, transparent 100%);}
   .tc-cover-wrapper img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
   .tc-cover-wrapper .local-cover-text{font-size:80px;font-weight:800;color:rgba(255,255,255,.9);position:relative;z-index:1}
-  .tc-header-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px}
+  
+  .tc-header-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;margin-top:10px;z-index:2}
   .tc-device{font-size:11px;color:rgba(255,255,255,.6);text-transform:uppercase}
-  .tc-close-btn{background:none;border:none;color:#fff;cursor:pointer}
-  .tc-title-text{font-size:20px;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .tc-artist-text{font-size:17px;color:rgba(255,255,255,.7)}
-  .tc-progress-wrap{margin-top:22px;display:flex;flex-direction:column;gap:6px}
+  .tc-close-btn{background:rgba(0,0,0,.5);border:none;border-radius:50%;width:28px;height:28px;display:grid;place-items:center;color:#fff;cursor:pointer;z-index:10}
+  
+  .tc-title-text{font-size:22px;font-weight:800;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 2px 10px rgba(0,0,0,.5);z-index:2}
+  .tc-artist-text{font-size:15px;color:rgba(255,255,255,.7);z-index:2}
+  .tc-progress-wrap{margin-top:22px;display:flex;flex-direction:column;gap:6px;z-index:2}
   .tc-time-labels{display:flex;justify-content:space-between;font-size:11px;font-weight:600;color:rgba(255,255,255,.5)}
   .tc-prog-bar-bg{width:100%;height:4px;background:rgba(255,255,255,.15);border-radius:2px;position:relative;cursor:pointer}
   .tc-prog-fill{position:absolute;left:0;top:0;bottom:0;background:#fff;border-radius:2px;width:0%}
-  .tc-controls{display:flex;align-items:center;justify-content:space-between;margin-top:20px;padding:0 4px}
+  .tc-controls{display:flex;align-items:center;justify-content:space-between;margin-top:20px;padding:0 4px;z-index:2}
   .tc-btn-ctrl{background:none;border:none;color:#fff;cursor:pointer;width:44px;height:44px;display:grid;place-items:center}
   .tc-btn-play{background:none;border:none;color:#fff;cursor:pointer;width:48px;height:48px;display:grid;place-items:center}
-  .tc-volume-wrap{display:flex;align-items:center;gap:12px;margin-top:20px}
+  .tc-volume-wrap{display:flex;align-items:center;gap:12px;margin-top:20px;z-index:2}
   .tc-vol-bar-bg{flex:1;height:4px;background:rgba(255,255,255,.15);border-radius:2px;position:relative;cursor:pointer}
   .tc-vol-fill{position:absolute;left:0;top:0;bottom:0;background:#fff;border-radius:2px;width:72%}
 
@@ -175,7 +182,7 @@
   .upload-modal,.edit-modal{position:fixed;inset:0;z-index:210;display:none;align-items:center;justify-content:center;padding:20px}
   .upload-modal.show,.edit-modal.show{display:flex}
   .um-backdrop,.em-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.8);backdrop-filter:blur(20px)}
-  .um-card,.em-card{position:relative;width:min(440px,calc(100vw - 32px));background:#121212;border:1px solid rgba(255,255,255,.18);border-radius:28px;padding:26px 24px 22px}
+  .um-card,.em-card{position:relative;width:min(440px,calc(100vw - 32px));background:#121212;border:1px solid rgba(255,255,255,.18);border-radius:28px;padding:26px 24px 22px;max-height:90vh;overflow-y:auto;}
   .um-title,.em-title{font-size:20px;font-weight:800;margin-bottom:6px}
   .um-sub,.em-sub{font-size:13px;color:var(--muted);margin-bottom:20px}
   .um-tabs{display:flex;gap:6px;margin-bottom:20px;background:rgba(0,0,0,.25);padding:4px;border-radius:14px}
@@ -186,7 +193,9 @@
   .um-field,.em-field{margin-bottom:14px}
   .um-label,.em-label{display:block;font-size:11px;font-weight:700;color:var(--muted-2);margin-bottom:6px}
   .um-input,.em-input{width:100%;padding:12px 14px;background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.12);border-radius:12px;color:#fff;font:inherit;font-size:14px;outline:none}
-  .um-drop{padding:32px 20px;border:2px dashed rgba(255,255,255,.2);border-radius:16px;text-align:center;cursor:pointer}
+  
+  .um-drop{padding:20px;border:2px dashed rgba(255,255,255,.2);border-radius:16px;text-align:center;cursor:pointer;margin-bottom:12px;background:rgba(255,255,255,.02)}
+  .um-drop:hover{background:rgba(255,255,255,.05)}
   .um-drop input{display:none}
   .um-note{font-size:11.5px;color:var(--muted-2);margin-top:12px;padding:10px 12px;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);border-radius:10px}
   .um-actions,.em-actions{display:flex;gap:8px;margin-top:20px}
@@ -196,42 +205,23 @@
 
   .fab{position:fixed;left:22px;bottom:120px;z-index:120;width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#b9cbff,#6366f1 62%,#d946ef);color:#0a0c12;display:grid;place-items:center;cursor:pointer}
 
-  /* ==========================================
-     LAYOUT MOBILE (HP)
-     ========================================== */
+  /* MOBILE LAYOUT (HP) */
   @media (max-width: 640px) {
-    .app {
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr 76px 64px;
-      padding: 8px;
-      gap: 8px;
-    }
+    .app { grid-template-columns: 1fr; grid-template-rows: 1fr 76px 64px; padding: 8px; gap: 8px; }
     .main { grid-column: 1; grid-row: 1; border-radius: 20px; padding-bottom: 20px; }
     .sidebar { display: none; }
     .player { grid-column: 1; grid-row: 2; border-radius: 20px; grid-template-columns: 1fr auto; padding: 0 10px; }
     .np-center { display: none; }
     
-    /* MOBILE BOTTOM NAV */
-    .mobile-nav {
-      grid-column: 1; grid-row: 3;
-      display: flex; justify-content: space-around; align-items: center;
-      border-radius: 20px;
-      padding-bottom: env(safe-area-inset-bottom, 0);
-    }
-    .m-nav-item {
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 4px; color: var(--muted); font-size: 10px; font-weight: 600;
-      text-decoration: none; width: 100%; height: 100%; cursor: pointer;
-    }
+    .mobile-nav { grid-column: 1; grid-row: 3; display: flex; justify-content: space-around; align-items: center; border-radius: 20px; padding-bottom: env(safe-area-inset-bottom, 0); }
+    .m-nav-item { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; color: var(--muted); font-size: 10px; font-weight: 600; text-decoration: none; width: 100%; height: 100%; cursor: pointer; }
     .m-nav-item svg { width: 20px; height: 20px; }
     .m-nav-item.active { color: var(--accent); }
     
     .topbar { margin: 10px 10px 0; top: 10px; }
     .content { padding: 16px 10px 80px; }
-    .track-card { border-radius: 36px; width: calc(100vw - 32px); padding: 18px; }
-    .cat-grid { grid-template-columns: 1fr 1fr; }
+    .track-card { border-radius: 36px; width: calc(100vw - 32px); padding: 0; }
     .grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 10px; }
-    
     .fab { bottom: calc(76px + 64px + 16px); }
     .profile-card { padding: 20px; gap: 16px; flex-direction: column; text-align: center; }
     .profile-avatar { width: 90px; height: 90px; font-size: 36px; }
@@ -259,16 +249,20 @@
   <div class="track-card">
     <div class="tc-bg-blur" id="tcBgBlur"></div>
     <div class="tc-content">
-      <div class="tc-cover-wrapper" id="tcCoverWrap">
-        <img id="tcCoverImg" src="" alt="Cover">
-        <div id="tcLocalCover" class="local-cover-text" style="display:none;"></div>
-      </div>
+      
       <div class="tc-header-row">
         <span class="tc-device">iPhone</span>
         <button class="tc-close-btn" id="tcClose"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
       </div>
+
+      <div class="tc-cover-wrapper" id="tcCoverWrap">
+        <img id="tcCoverImg" src="" alt="Cover">
+        <div id="tcLocalCover" class="local-cover-text" style="display:none;"></div>
+      </div>
+      
       <div class="tc-title-row"><div class="tc-title-text" id="tcTitle">Judul Lagu</div></div>
       <div class="tc-artist-row"><div class="tc-artist-text" id="tcArtist">Nama Artis</div></div>
+      
       <div class="tc-progress-wrap">
         <div class="tc-time-labels"><span id="tcCurTime">0:00</span><span id="tcRemTime">-0:00</span></div>
         <div class="tc-prog-bar-bg" id="tcProgBg"><div class="tc-prog-fill" id="tcProgFill"></div></div>
@@ -299,10 +293,15 @@
     <div class="um-panel active" id="panel-file">
       <div class="um-drop" id="dropZone">
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
-        <div style="font-size:14px;font-weight:600;margin-top:10px;">Pilih file MP3</div>
+        <div style="font-size:14px;font-weight:600;margin-top:10px;">Pilih File Lagu (MP3)</div>
         <input type="file" id="fileInput" accept="audio/*" multiple>
       </div>
-      <div class="um-note">📁 Tersimpan di browser (bisa diputar offline).</div>
+      <div class="um-drop" id="coverDropZone" style="padding:16px;">
+        <div style="font-size:13px;font-weight:600;color:var(--accent);">+ Pilih Gambar Sampul (Opsional)</div>
+        <div id="coverFileName" style="font-size:11px;color:var(--muted);margin-top:4px;">Belum ada gambar</div>
+        <input type="file" id="coverInput" accept="image/*">
+      </div>
+      <div class="um-note">📁 File disimpan di browser (bisa diputar offline).</div>
     </div>
     <div class="um-panel" id="panel-url">
       <div class="um-field"><label class="um-label">URL MP3</label><input class="um-input" id="urlInput" type="url" placeholder="https://..."></div>
@@ -321,9 +320,19 @@
   <div class="em-card">
     <div class="em-title">Edit Profil</div>
     <div class="em-sub">Ubah informasi profil kamu.</div>
+    
+    <div class="em-field" style="text-align:center;">
+      <div class="profile-avatar" id="emAvatarPreview" style="margin:0 auto 12px; width:80px; height:80px; font-size:30px;"></div>
+      <label class="em-btn primary" style="display:inline-block; width:auto; padding:8px 16px; border-radius:99px; cursor:pointer;">
+        Pilih Foto
+        <input type="file" id="emImageInput" accept="image/*" style="display:none;">
+      </label>
+    </div>
+
     <div class="em-field"><label class="em-label">Nama</label><input class="em-input" id="emName" type="text"></div>
     <div class="em-field"><label class="em-label">Username</label><input class="em-input" id="emHandle" type="text"></div>
     <div class="em-field"><label class="em-label">Bio</label><input class="em-input" id="emBio" type="text"></div>
+    
     <div class="em-actions">
       <button class="em-btn cancel" id="emCancel">Batal</button>
       <button class="em-btn primary" id="emSave">Simpan</button>
@@ -414,7 +423,7 @@
 <script>
 const state = { view:"home", current:null, playing:false, query:"", shuffle:false, repeat:false, volume:0.72, modalTrackId:null, dynamicBarDismissed:false };
 let tracks = [];
-let userProfile = JSON.parse(localStorage.getItem('nys_profile')) || { name: 'Nys', handle: '@nysxmusic', bio: 'Bikin playlist buat jalan pulang.' };
+let userProfile = JSON.parse(localStorage.getItem('nys_profile')) || { name: 'Nys', handle: '@nysxmusic', bio: 'Bikin playlist buat jalan pulang.', image: null };
 
 const DB_NAME = 'nys_xmusic_db', DB_STORE = 'local_tracks';
 let db = null;
@@ -426,7 +435,17 @@ function fmt(sec){ if (!isFinite(sec) || sec < 0) sec = 0; sec = Math.floor(sec)
 function esc(str){ return String(str).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
 function greeting(){ const h = new Date().getHours(); if (h < 11) return "Selamat pagi"; if (h < 15) return "Selamat siang"; if (h < 19) return "Selamat sore"; return "Selamat malam"; }
 
-// FUNGSI CSS UNTUK COVER LOKAL (ANTI HITAM)
+// Helper: File ke Base64
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+  });
+}
+
+// CSS Cover untuk Lagu Lokal tanpa gambar
 function getLocalCoverStyle(track) {
   const c1 = track.c1 || '#6366f1';
   const c2 = track.c2 || '#1e1b4b';
@@ -506,7 +525,7 @@ function audiusToTrack(t){
 function renderSidebar(){
   $('#libList').innerHTML = tracks.slice(0, 8).map(t => `
     <li class="lib-item" data-id="${t.id}">
-      <div class="lib-thumb" style="${t.imageUrl ? '' : getLocalCoverStyle(t)}">${t.imageUrl?`<img src="${t.imageUrl}" loading="lazy">`: `<span style="font-weight:bold;color:white">${(t.title||'?')[0].toUpperCase()}</span>`}</div>
+      <div class="lib-thumb" style="${t.imageUrl ? `background-image:url(${t.imageUrl})` : getLocalCoverStyle(t)}">${t.imageUrl ? '' : `<span style="font-weight:bold;color:white">${(t.title||'?')[0].toUpperCase()}</span>`}</div>
       <div class="lib-info"><div class="lib-name">${esc(t.title)}</div><div class="lib-sub">${esc(t.artist)}</div></div>
     </li>
   `).join('') || '<li style="padding:10px;font-size:12px;color:var(--muted)">Belum ada lagu</li>';
@@ -514,8 +533,10 @@ function renderSidebar(){
 
 function trackCard(t){
   const isPlaying = state.current && state.current.id === t.id && state.playing;
+  const delBtn = t.source === 'local' ? `<button data-delete="${t.id}" style="position:absolute;top:8px;right:8px;width:28px;height:28px;border-radius:50%;background:rgba(0,0,0,.6);border:none;color:#fff;cursor:pointer;z-index:5;font-size:16px">×</button>` : '';
   return `<div class="card ${isPlaying?'playing':''}" data-id="${t.id}">
     ${artHTML(t)}
+    ${delBtn}
     <h3>${esc(t.title)}</h3>
     <p>${esc(t.artist)}</p>
     <button class="card-play" data-play="${t.id}">${isPlaying?ICON_PAUSE:ICON_PLAY}</button>
@@ -536,7 +557,13 @@ async function renderHomeView(){
   $('#content').innerHTML = `<section class="section"><div class="section-head"><h2>Memuat musik…</h2></div><p class="empty">Menghubungi Audius…</p></section>`;
   const trending = await fetchTrending();
   const localTracks = await getAllLocalTracks();
-  const localWithUrl = localTracks.map(t => ({...t, url: t.blob ? URL.createObjectURL(t.blob) : t.url, source: 'local'}));
+  
+  const localWithUrl = localTracks.map(t => ({
+    ...t, 
+    url: t.blob ? URL.createObjectURL(t.blob) : t.url, 
+    imageUrl: t.coverBlob ? URL.createObjectURL(t.coverBlob) : null, // Ambil gambar dari IndexedDB
+    source: 'local'
+  }));
   tracks = [...localWithUrl, ...trending];
   renderSidebar();
 
@@ -612,7 +639,12 @@ function renderSearchView(){
 
 async function renderLibraryView() {
   const localTracks = await getAllLocalTracks();
-  const w = localTracks.map(t => ({...t, url: t.blob ? URL.createObjectURL(t.blob) : t.url, source:'local'}));
+  const w = localTracks.map(t => ({
+    ...t, 
+    url: t.blob ? URL.createObjectURL(t.blob) : t.url, 
+    imageUrl: t.coverBlob ? URL.createObjectURL(t.coverBlob) : null,
+    source:'local'
+  }));
   tracks = [...w, ...tracks.filter(t => t.source !== 'local')];
 
   $('#content').innerHTML = `<section class="section">
@@ -624,13 +656,27 @@ async function renderLibraryView() {
       ${w.length ? w.map(trackCard).join('') : '<p class="empty">Belum ada lagu offline. Upload MP3 sekarang!</p>'}
     </div>
   </section>`;
+  
+  $$('[data-delete]').forEach(btn => btn.addEventListener('click', async e => {
+    e.stopPropagation();
+    if (confirm('Hapus lagu ini?')){ 
+      await deleteLocalTrack(btn.dataset.delete); 
+      showToast('Lagu dihapus'); 
+      renderLibraryView(); 
+      renderSidebar();
+    }
+  }));
   updateCardStates();
 }
 
 function renderProfileView() {
+  const avatarStyle = userProfile.image 
+    ? `background-image: url(${userProfile.image}); background-size: cover; background-position: center; color: transparent;` 
+    : `background: linear-gradient(135deg,#b9cbff,#6366f1 55%,#d946ef); color: #0a0c12;`;
+
   $('#content').innerHTML = `
     <section class="profile-card">
-      <div class="profile-avatar" id="profAvatar">${esc(userProfile.name[0].toUpperCase())}</div>
+      <div class="profile-avatar" id="profAvatar" style="${avatarStyle}">${userProfile.image ? '' : esc(userProfile.name[0].toUpperCase())}</div>
       <div class="profile-info">
         <h1 id="profName">${esc(userProfile.name)}</h1>
         <div style="font-size:13px;color:var(--muted);margin-top:4px" id="profHandle">${esc(userProfile.handle)}</div>
@@ -642,12 +688,23 @@ function renderProfileView() {
       <div class="section-head"><h2>Pengaturan</h2></div>
       <div style="background:rgba(255,255,255,.05); padding:16px; border-radius:12px; border:1px solid rgba(255,255,255,.1);">
         <div style="font-size:14px; font-weight:600;">Versi Aplikasi</div>
-        <div style="font-size:12px; color:var(--muted); margin-top:2px;">1.0.0 (Mobile Optimized)</div>
+        <div style="font-size:12px; color:var(--muted); margin-top:2px;">1.2.0 (Custom Art & Profile)</div>
       </div>
     </section>
   `;
   $('#editProfileBtn').addEventListener('click', () => {
     $('#emName').value = userProfile.name; $('#emHandle').value = userProfile.handle; $('#emBio').value = userProfile.bio;
+    
+    const emAvatar = $('#emAvatarPreview');
+    if (userProfile.image) {
+      emAvatar.style.backgroundImage = `url(${userProfile.image})`;
+      emAvatar.style.backgroundSize = 'cover';
+      emAvatar.textContent = '';
+    } else {
+      emAvatar.style.backgroundImage = 'none';
+      emAvatar.style.background = 'linear-gradient(135deg,#b9cbff,#6366f1 55%,#d946ef)';
+      emAvatar.textContent = userProfile.name[0].toUpperCase();
+    }
     $('#editModal').classList.add('show');
   });
 }
@@ -673,7 +730,7 @@ function updatePlayUI(){
     $('#durTime').textContent = fmt(getDuration());
   } else {
     $('#npTitle').textContent = "Belum ada lagu"; $('#npArtist').textContent = "nys Xmusic";
-    $('#npArt').innerHTML = ""; npArt.style.background = "rgba(255,255,255,.06)"; $('#durTime').textContent = "0:00"; $('#curTime').textContent = "0:00"; $('#seekFill').style.width = "0%";
+    $('#npArt').innerHTML = ""; $('#npArt').style.background = "rgba(255,255,255,.06)"; $('#durTime').textContent = "0:00"; $('#curTime').textContent = "0:00"; $('#seekFill').style.width = "0%";
   }
   updateProgressBar(); updateDynamicBar();
 }
@@ -683,6 +740,7 @@ function updateDynamicBar(){
   const bar = $('#dynamicBar'); const t = state.current;
   if (!t || state.dynamicBarDismissed){ bar.hidden = true; return; }
   bar.hidden = false; bar.classList.toggle('paused', !state.playing);
+  
   if (t.imageUrl) {
     bar.style.background = `linear-gradient(90deg, rgba(0,0,0,.55), rgba(0,0,0,.25)), url("${t.imageUrl}") center/cover`;
     $('#dbArt').innerHTML = `<img src="${t.imageUrl}" alt="">`; $('#dbArt').style.background = 'transparent';
@@ -691,6 +749,7 @@ function updateDynamicBar(){
     $('#dbArt').innerHTML = `<div class="local-cover-text">${(t.title||'?')[0].toUpperCase()}</div>`;
     $('#dbArt').style.cssText = getLocalCoverStyle(t);
   }
+  
   $('#dbTitle').textContent = t.title; $('#dbArtist').textContent = t.artist;
   $('#dbBtn').innerHTML = state.playing ? ICON_PAUSE : ICON_PLAY;
   if ('mediaSession' in navigator) {
@@ -701,6 +760,8 @@ function updateDynamicBar(){
 /* TRACK MODAL */
 function showTrackModal(track){
   state.modalTrackId = track.id;
+  const modal = $('#trackModal');
+  
   if (track.imageUrl) {
     $('#tcCoverImg').src = track.imageUrl; $('#tcCoverImg').style.display = 'block';
     $('#tcLocalCover').style.display = 'none';
@@ -712,9 +773,10 @@ function showTrackModal(track){
     $('#tcBgBlur').style.backgroundImage = `linear-gradient(135deg, ${track.c1||'#6366f1'}, ${track.c2||'#1e1b4b'})`;
     $('#tcCoverWrap').style.cssText = getLocalCoverStyle(track);
   }
+
   $('#tcTitle').textContent = track.title; $('#tcArtist').textContent = track.artist;
   updateModalPlayState(); updateModalTime(); updateModalProgress(getPosition(), getDuration());
-  $('#trackModal').hidden = false;
+  modal.hidden = false;
 }
 function updateModalPlayState(){ $('#tcPlayPause').innerHTML = (state.current && state.modalTrackId === state.current.id && state.playing) ? ICON_PAUSE_BIG : ICON_PLAY_BIG; }
 function updateModalTime(){ const dur = getDuration(), pos = getPosition(); $('#tcCurTime').textContent = fmt(pos); $('#tcRemTime').textContent = '-' + fmt(Math.max(0, dur - pos)); }
@@ -732,7 +794,8 @@ function playNext(){ if (!state.current) return; const i = tracks.findIndex(t =>
 function playPrev(){ if (!state.current) return; if (getPosition() > 3){ audioEl.currentTime = 0; return; } const i = tracks.findIndex(t => t.id === state.current.id); const prev = tracks[(i-1+tracks.length) % tracks.length]; state.current = prev; startPlayback(prev, 0); updatePlayUI(); updateCardStates(); }
 
 /* UPLOAD & EDIT */
-function openUpload(){ $('#uploadModal').classList.add('show'); }
+let pendingCoverFile = null;
+function openUpload(){ $('#uploadModal').classList.add('show'); $('#coverFileName').textContent = 'Belum ada gambar'; pendingCoverFile = null; }
 function closeUpload(){ $('#uploadModal').classList.remove('show'); }
 $('#openUpload').addEventListener('click', openUpload); $('#umBackdrop').addEventListener('click', closeUpload); $('#umCancel').addEventListener('click', closeUpload);
 $$('.um-tab').forEach(tab => tab.addEventListener('click', () => { $$('.um-tab').forEach(t => t.classList.remove('active')); tab.classList.add('active'); $$('.um-panel').forEach(p => p.classList.remove('active')); $('#panel-' + tab.dataset.tab).classList.add('active'); }));
@@ -742,13 +805,41 @@ dropZone.addEventListener('click', () => fileInput.click());
 dropZone.addEventListener('drop', async e => { e.preventDefault(); await handleFiles([...e.dataTransfer.files]); });
 fileInput.addEventListener('change', async e => { await handleFiles([...e.target.files]); });
 
+// Cover Input Logic
+const coverDropZone = $('#coverDropZone'), coverInput = $('#coverInput');
+coverDropZone.addEventListener('click', (e) => { if(e.target.tagName !== 'INPUT') coverInput.click(); });
+coverInput.addEventListener('change', (e) => {
+  if (e.target.files.length > 0) {
+    pendingCoverFile = e.target.files[0];
+    $('#coverFileName').textContent = pendingCoverFile.name;
+  }
+});
+
 async function handleFiles(files){
   const audioFiles = files.filter(f => f.type.startsWith('audio/') || /\.(mp3|m4a|wav|ogg)$/i.test(f.name));
   if (!audioFiles.length){ showToast('Tidak ada file audio'); return; }
+  
   for (const file of audioFiles){
     const id = 'local_' + Date.now() + '_' + Math.random().toString(36).slice(2,8);
-    await saveLocalTrack({ id, title: file.name.replace(/\.[^.]+$/, ''), artist: 'Lokal', album: 'Offline', blob: file, c1: '#6366f1', c2: '#1e1b4b', imageUrl: null, dur: 0, source: 'local', artistPhoto: null });
+    const newTrack = { 
+      id, 
+      title: file.name.replace(/\.[^.]+$/, ''), 
+      artist: 'Lokal', 
+      album: 'Offline', 
+      blob: file, 
+      c1: '#6366f1', c2: '#1e1b4b', 
+      imageUrl: null, 
+      dur: 0, source: 'local', artistPhoto: null 
+    };
+    
+    // Jika ada gambar yang dipilih, masukkan ke dalam database
+    if (pendingCoverFile) {
+      newTrack.coverBlob = pendingCoverFile;
+    }
+    
+    await saveLocalTrack(newTrack);
   }
+  
   showToast(`${audioFiles.length} lagu ditambahkan!`);
   closeUpload(); setView('library');
 }
@@ -760,12 +851,48 @@ $('#umSave').addEventListener('click', async () => {
   showToast('URL ditambahkan'); closeUpload(); setView('library');
 });
 
-$('#emBackdrop').addEventListener('click', () => $('#editModal').classList.remove('show')); $('#emCancel').addEventListener('click', () => $('#editModal').classList.remove('show'));
-$('#emSave').addEventListener('click', () => {
-  const name = $('#emName').value.trim() || 'Nys'; const handle = $('#emHandle').value.trim() || '@nysxmusic'; const bio = $('#emBio').value.trim() || 'Tidak ada bio.';
-  userProfile = { name, handle, bio }; localStorage.setItem('nys_profile', JSON.stringify(userProfile));
-  $('#editModal').classList.remove('show'); showToast('Profil diperbarui!'); renderProfileView(); $('#topProfileBtn').textContent = userProfile.name[0].toUpperCase();
+// Edit Profile Logic
+let pendingProfileFile = null;
+$('#emImageInput').addEventListener('change', async (e) => {
+  if (e.target.files.length > 0) {
+    const file = e.target.files[0];
+    const base64 = await fileToBase64(file);
+    const emAvatar = $('#emAvatarPreview');
+    emAvatar.style.backgroundImage = `url(${base64})`;
+    emAvatar.style.backgroundSize = 'cover';
+    emAvatar.textContent = '';
+    pendingProfileFile = base64;
+  }
 });
+
+$('#emBackdrop').addEventListener('click', () => $('#editModal').classList.remove('show')); 
+$('#emCancel').addEventListener('click', () => $('#editModal').classList.remove('show'));
+$('#emSave').addEventListener('click', () => {
+  const name = $('#emName').value.trim() || 'Nys'; 
+  const handle = $('#emHandle').value.trim() || '@nysxmusic'; 
+  const bio = $('#emBio').value.trim() || 'Tidak ada bio.';
+  
+  userProfile = { name, handle, bio, image: pendingProfileFile || userProfile.image };
+  localStorage.setItem('nys_profile', JSON.stringify(userProfile));
+  
+  $('#editModal').classList.remove('show'); 
+  showToast('Profil diperbarui!'); 
+  renderProfileView(); 
+  updateTopBarProfile();
+  pendingProfileFile = null;
+});
+
+function updateTopBarProfile() {
+  const btn = $('#topProfileBtn');
+  if (userProfile.image) {
+    btn.textContent = '';
+    btn.style.backgroundImage = `url(${userProfile.image})`;
+    btn.style.backgroundSize = 'cover';
+  } else {
+    btn.textContent = userProfile.name[0].toUpperCase();
+    btn.style.backgroundImage = 'none';
+  }
+}
 
 /* EVENTS */
 document.addEventListener('click', e => {
@@ -818,7 +945,7 @@ if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navi
 
 (async function init(){ 
   await openDB(); 
-  $('#topProfileBtn').textContent = userProfile.name[0].toUpperCase();
+  updateTopBarProfile();
   renderSidebar(); renderMain(); updatePlayUI(); 
 })();
 </script>
