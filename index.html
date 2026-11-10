@@ -172,30 +172,30 @@
   .tc-vol-bar-bg{flex:1;height:4px;background:rgba(255,255,255,.15);border-radius:2px;position:relative;cursor:pointer}
   .tc-vol-fill{position:absolute;left:0;top:0;bottom:0;background:#fff;border-radius:2px;width:72%}
 
-  /* UPLOAD, EDIT, & HUB MODAL */
-  .upload-modal,.edit-modal,.hub-modal{position:fixed;inset:0;z-index:210;display:none;align-items:center;justify-content:center;padding:20px}
-  .upload-modal.show,.edit-modal.show,.hub-modal.show{display:flex}
-  .um-backdrop,.em-backdrop,.hm-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.8);backdrop-filter:blur(20px)}
-  .um-card,.em-card,.hm-card{position:relative;width:min(440px,calc(100vw - 32px));background:#121212;border:1px solid rgba(255,255,255,.18);border-radius:28px;padding:26px 24px 22px;max-height:90vh;overflow-y:auto;}
-  .um-title,.em-title,.hm-title{font-size:20px;font-weight:800;margin-bottom:6px}
-  .um-sub,.em-sub,.hm-sub{font-size:13px;color:var(--muted);margin-bottom:20px}
+  /* UPLOAD, EDIT, HUB, & DOWNLOADER MODAL */
+  .upload-modal,.edit-modal,.hub-modal,.dl-modal{position:fixed;inset:0;z-index:210;display:none;align-items:center;justify-content:center;padding:20px}
+  .upload-modal.show,.edit-modal.show,.hub-modal.show,.dl-modal.show{display:flex}
+  .um-backdrop,.em-backdrop,.hm-backdrop,.dm-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.8);backdrop-filter:blur(20px)}
+  .um-card,.em-card,.hm-card,.dm-card{position:relative;width:min(440px,calc(100vw - 32px));background:#121212;border:1px solid rgba(255,255,255,.18);border-radius:28px;padding:26px 24px 22px;max-height:90vh;overflow-y:auto;}
+  .um-title,.em-title,.hm-title,.dm-title{font-size:20px;font-weight:800;margin-bottom:6px}
+  .um-sub,.em-sub,.hm-sub,.dm-sub{font-size:13px;color:var(--muted);margin-bottom:20px}
   .um-tabs{display:flex;gap:6px;margin-bottom:20px;background:rgba(0,0,0,.25);padding:4px;border-radius:14px}
   .um-tab{flex:1;padding:9px;border-radius:10px;background:transparent;border:none;color:var(--muted);font:inherit;font-size:13px;font-weight:600;cursor:pointer}
   .um-tab.active{background:rgba(255,255,255,.15);color:#fff}
   .um-panel{display:none}
   .um-panel.active{display:block}
-  .um-field,.em-field,.hm-field{margin-bottom:14px}
-  .um-label,.em-label,.hm-label{display:block;font-size:11px;font-weight:700;color:var(--muted-2);margin-bottom:6px}
-  .um-input,.em-input,.hm-input{width:100%;padding:12px 14px;background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.12);border-radius:12px;color:#fff;font:inherit;font-size:14px;outline:none}
+  .um-field,.em-field,.hm-field,.dm-field{margin-bottom:14px}
+  .um-label,.em-label,.hm-label,.dm-label{display:block;font-size:11px;font-weight:700;color:var(--muted-2);margin-bottom:6px}
+  .um-input,.em-input,.hm-input,.dm-input{width:100%;padding:12px 14px;background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.12);border-radius:12px;color:#fff;font:inherit;font-size:14px;outline:none}
   
   .um-drop{padding:20px;border:2px dashed rgba(255,255,255,.2);border-radius:16px;text-align:center;cursor:pointer;margin-bottom:12px;background:rgba(255,255,255,.02)}
   .um-drop:hover{background:rgba(255,255,255,.05)}
   .um-drop input{display:none}
   .um-note{font-size:11.5px;color:var(--muted-2);margin-top:12px;padding:10px 12px;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);border-radius:10px}
-  .um-actions,.em-actions,.hm-actions{display:flex;gap:8px;margin-top:20px}
-  .um-btn,.em-btn,.hm-btn{flex:1;padding:13px;border-radius:999px;border:none;font:inherit;font-size:13.5px;font-weight:700;cursor:pointer}
-  .um-btn.primary,.em-btn.primary,.hm-btn.primary{background:#1DB954;color:#03200e}
-  .um-btn.cancel,.em-btn.cancel,.hm-btn.cancel{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.14)}
+  .um-actions,.em-actions,.hm-actions,.dm-actions{display:flex;gap:8px;margin-top:20px}
+  .um-btn,.em-btn,.hm-btn,.dm-btn{flex:1;padding:13px;border-radius:999px;border:none;font:inherit;font-size:13.5px;font-weight:700;cursor:pointer}
+  .um-btn.primary,.em-btn.primary,.hm-btn.primary,.dm-btn.primary{background:#1DB954;color:#03200e}
+  .um-btn.cancel,.em-btn.cancel,.hm-btn.cancel,.dm-btn.cancel{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.14)}
 
   .fab{position:fixed;left:22px;bottom:120px;z-index:120;width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#b9cbff,#6366f1 62%,#d946ef);color:#0a0c12;display:grid;place-items:center;cursor:pointer}
 
@@ -237,6 +237,31 @@
   <div class="db-info"><div class="db-title" id="dbTitle">—</div><div class="db-artist" id="dbArtist">—</div></div>
   <button class="db-btn" id="dbBtn"></button>
   <button class="db-close" id="dbClose"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+</div>
+
+<!-- DOWNLOADER MODAL -->
+<div class="dl-modal" id="dlModal">
+  <div class="dm-backdrop" id="dmBackdrop"></div>
+  <div class="dm-card">
+    <div class="dm-title">Download Lagu (API)</div>
+    <div class="dm-sub">Tempel tautan YouTube. Sistem akan memanggil API untuk mengunduh MP3.</div>
+    
+    <div class="dm-field">
+      <label class="dm-label">Tautan YouTube</label>
+      <input class="dm-input" id="dlUrlInput" type="url" placeholder="https://youtube.com/watch?v=...">
+    </div>
+    
+    <div id="dlResult" style="margin-top:20px; display:none; padding:15px; background:rgba(255,255,255,.05); border-radius:12px; border:1px solid rgba(255,255,255,.1);">
+      <div style="font-size:12px; color:var(--muted); margin-bottom:8px;">API Berhasil Merespon:</div>
+      <a id="dlLink" href="#" target="_blank" style="display:block; text-align:center; background:#1DB954; color:#000; padding:10px; border-radius:99px; font-weight:bold; text-decoration:none;">Klik untuk Download MP3</a>
+    </div>
+    <div id="dlLoading" style="display:none; text-align:center; margin-top:20px; font-size:14px; color:var(--accent);">Menghubungi API... Mohon Tunggu.</div>
+
+    <div class="dm-actions">
+      <button class="dm-btn cancel" id="dmCancel">Tutup</button>
+      <button class="dm-btn primary" id="dmProcess">Proses API</button>
+    </div>
+  </div>
 </div>
 
 <div class="track-modal" id="trackModal" hidden>
@@ -361,9 +386,15 @@
         <span class="brand-name">nys Xmusic</span>
       </div>
       <a class="nav-item active" data-view="home"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.4 12 3l9 7.4V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span>Beranda</span></a>
-      <a class="nav-item" data-view="search"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20.5 20.5-3.6-3.6"/></svg><span>Cari</span></a>
+      <a class="nav-item" data-view="search"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20.5 20.5-3.6-3.6"/></svg><span>Cari (Audius)</span></a>
+      
+      <!-- TOMBOL DOWNLOADER DESKTOP -->
+      <a class="nav-item" id="openDlModal" style="margin-top:10px; color:#1DB954;">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        <span>Download API</span>
+      </a>
+
       <a class="nav-item" data-view="library"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5h4V21H3zM9 4.5h4V21H9zM15 4.5h3.4a1 1 0 0 1 1 .9L20.4 21h-3.9z"/></svg><span>Perpustakaan</span></a>
-      <a class="nav-item" id="openHub" style="margin-top:10px;"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg><span>Hub Musik</span></a>
     </nav>
     <div class="glass side-lib">
       <div class="lib-head">
@@ -421,10 +452,13 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20.5 20.5-3.6-3.6"/></svg>
       <span>Cari</span>
     </a>
-    <a class="m-nav-item" id="mobileOpenHub">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-      <span>Hub</span>
+    
+    <!-- TOMBOL DOWNLOADER MOBILE -->
+    <a class="m-nav-item" id="mobileOpenDl">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#1DB954" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+      <span style="color:#1DB954;">Download</span>
     </a>
+
     <a class="m-nav-item" data-view="library">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5h4V21H3zM9 4.5h4V21H9zM15 4.5h3.4a1 1 0 0 1 1 .9L20.4 21h-3.9z"/></svg>
       <span>Pustaka</span>
@@ -537,6 +571,67 @@ function audiusToTrack(t){
   };
 }
 
+/* ========================================================
+   FITUR DOWNLOAD API (RAPIDAPI) - SIAP PAKAI!
+   ======================================================== */
+const RAPIDAPI_KEY = "18f2f39b5emsh07bc8d281308cd9p1bb969jsne61e351bb861"; 
+const RAPIDAPI_HOST = "youtube-mp36.p.rapidapi.com";
+
+function openDownloader() {
+  $('#dlModal').classList.add('show');
+  $('#dlResult').style.display = 'none';
+  $('#dlUrlInput').value = '';
+}
+function closeDownloader() {
+  $('#dlModal').classList.remove('show');
+}
+$('#openDlModal').addEventListener('click', openDownloader);
+$('#mobileOpenDl').addEventListener('click', openDownloader);
+$('#dmBackdrop').addEventListener('click', closeDownloader);
+$('#dmCancel').addEventListener('click', closeDownloader);
+
+$('#dmProcess').addEventListener('click', async () => {
+  const url = $('#dlUrlInput').value.trim();
+  if (!url) return showToast('Masukkan URL YouTube');
+  
+  // Ambil ID Video dari URL YouTube
+  let videoId = '';
+  if (url.includes('youtu.be/')) videoId = url.split('youtu.be/')[1].split('?')[0];
+  else if (url.includes('v=')) videoId = url.split('v=')[1].split('&')[0];
+  
+  if (!videoId) return showToast('Link YouTube tidak valid!');
+
+  $('#dlLoading').style.display = 'block';
+  $('#dlResult').style.display = 'none';
+
+  try {
+    const res = await fetch(`https://${RAPIDAPI_HOST}/dl?id=${videoId}`, {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Key': RAPIDAPI_KEY,
+        'X-RapidAPI-Host': RAPIDAPI_HOST
+      }
+    });
+    
+    const data = await res.json();
+    
+    if (data.link) {
+      $('#dlResult').style.display = 'block';
+      const dlBtn = $('#dlLink');
+      dlBtn.href = data.link;
+      dlBtn.download = data.title || 'audio.mp3';
+      showToast('API Berhasil! Link download tersedia.');
+    } else {
+      showToast('Gagal: ' + (data.msg || 'API tidak mengembalikan link.'));
+    }
+  } catch (error) {
+    console.error(error);
+    showToast('Terjadi kesalahan pada API.');
+  } finally {
+    $('#dlLoading').style.display = 'none';
+  }
+});
+
 /* RENDER */
 function renderSidebar(){
   $('#libList').innerHTML = tracks.slice(0, 8).map(t => `
@@ -600,10 +695,10 @@ async function renderHomeView(){
     <section class="hero">
       <div style="font-size:11px;font-weight:700;color:var(--muted-2);margin-bottom:12px;">nys Xmusic • ${greeting()}</div>
       <h1>Musik dari seluruh dunia.</h1>
-      <p>Upload MP3 sendiri untuk diputar offline, atau streaming dari Audius.</p>
+      <p>Upload MP3 sendiri, streaming dari Audius, atau unduh lagu via API Downloader.</p>
       <div class="hero-actions">
-        <button class="pill-btn primary" id="heroUpload">📤 Upload Musik</button>
-        <button class="pill-btn ghost" id="heroPlay">▶ Putar trending</button>
+        <button class="pill-btn primary" id="heroDl">⬇ Buka API Downloader</button>
+        <button class="pill-btn ghost" id="heroUpload">📤 Upload Musik</button>
       </div>
     </section>
     ${localSection}
@@ -620,7 +715,7 @@ async function renderHomeView(){
   `;
   updateCardStates();
   $('#heroUpload').addEventListener('click', openUpload);
-  $('#heroPlay').addEventListener('click', () => { if(tracks[0]) playTrack(tracks[0].id); });
+  $('#heroDl').addEventListener('click', openDownloader);
   $$('.cat-tile').forEach(el => el.addEventListener('click', () => categorySearch(el.dataset.cat)));
 }
 
@@ -704,7 +799,7 @@ function renderProfileView() {
       <div class="section-head"><h2>Pengaturan</h2></div>
       <div style="background:rgba(255,255,255,.05); padding:16px; border-radius:12px; border:1px solid rgba(255,255,255,.1);">
         <div style="font-size:14px; font-weight:600;">Versi Aplikasi</div>
-        <div style="font-size:12px; color:var(--muted); margin-top:2px;">1.3.0 (Bubble Glass & Hub)</div>
+        <div style="font-size:12px; color:var(--muted); margin-top:2px;">1.5.0 (API Downloader)</div>
       </div>
     </section>
   `;
@@ -905,9 +1000,8 @@ $('#hmSave').addEventListener('click', () => {
   msg.textContent = '';
 
   if (url.includes('spotify.com')) {
-    // Spotify Embed API (iframe)
     const parts = url.split('/');
-    const type = parts[3]; // track, album, playlist
+    const type = parts[3]; 
     const id = parts[4]?.split('?')[0];
     if (type && id) {
       preview.innerHTML = `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/${type}/${id}?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
@@ -916,7 +1010,6 @@ $('#hmSave').addEventListener('click', () => {
       msg.textContent = 'Tautan Spotify tidak valid.';
     }
   } else if (url.includes('youtube.com') || url.includes('youtu.be')) {
-    // YouTube IFrame API
     let videoId = '';
     if (url.includes('youtu.be/')) videoId = url.split('youtu.be/')[1].split('?')[0];
     else if (url.includes('v=')) videoId = url.split('v=')[1].split('&')[0];
