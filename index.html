@@ -40,17 +40,31 @@
   .player{grid-column:1/-1;grid-row:2;border-radius:32px;display:grid;grid-template-columns:1fr 2fr 1fr;align-items:center;gap:16px;padding:0 18px}
   .mobile-nav{display:none}
 
-  .side-nav{padding:10px;flex-shrink:0;border-radius:26px 26px 10px 26px}
+  /* NAVIGATION (Liquid Bubble Lens) */
+  .side-nav{padding:10px;flex-shrink:0;border-radius:26px 26px 10px 26px;position:relative}
   .side-lib{flex:1;min-height:0;display:flex;flex-direction:column;padding:10px 6px 10px 10px;border-radius:10px 26px 26px 26px}
   .brand{display:flex;align-items:center;gap:10px;padding:8px 12px 12px}
   .brand-mark{width:32px;height:32px;border-radius:11px 11px 11px 4px;display:grid;place-items:center;flex-shrink:0;color:#0a0c12;background:linear-gradient(135deg,#b9cbff,#6366f1 60%,#d946ef);box-shadow:inset 0 1.5px 0 rgba(255,255,255,.6),0 8px 22px rgba(99,102,241,.45)}
   .brand-name{font-size:15px;font-weight:800;letter-spacing:-.02em;white-space:nowrap}
 
-  /* Bubble Glass Navigation Items */
-  .nav-item{display:flex;align-items:center;gap:14px;padding:10px 14px;border-radius:999px;color:var(--muted);font-size:14px;font-weight:600;cursor:pointer;transition:all .3s var(--ease);text-decoration:none;background:transparent;border:1px solid transparent}
-  .nav-item:hover{color:#fff;background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1);backdrop-filter:blur(10px);box-shadow:inset 0 1px 0 rgba(255,255,255,.2)}
-  .nav-item.active{color:#fff;background:linear-gradient(135deg,rgba(185,203,255,.25),rgba(255,255,255,.08));border-color:rgba(255,255,255,.25);box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 4px 15px rgba(0,0,0,.2)}
-  
+  .nav-container{position:relative;display:flex;flex-direction:column;gap:4px}
+  .nav-item{display:flex;align-items:center;gap:14px;padding:10px 14px;border-radius:999px;color:var(--muted);font-size:14px;font-weight:600;cursor:pointer;transition:color .3s var(--ease);text-decoration:none;position:relative;z-index:2}
+  .nav-item:hover{color:#fff}
+  .nav-item.active{color:#fff}
+
+  /* LENSA GELEMBUNG */
+  .lens-bubble {
+    position: absolute;
+    border-radius: 999px;
+    background: linear-gradient(135deg, rgba(185,203,255,.28), rgba(255,255,255,.08));
+    box-shadow: inset 0 1px 1px rgba(255,255,255,.5), inset 0 -1px 1px rgba(0,0,0,.2), 0 4px 15px rgba(0,0,0,.2);
+    backdrop-filter: blur(10px);
+    z-index: 1;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    pointer-events: none;
+    opacity: 0;
+  }
+
   .lib-head{display:flex;align-items:center;justify-content:space-between;padding:2px 6px 10px 6px}
   .lib-title{display:flex;align-items:center;gap:12px;background:none;border:none;color:var(--muted);font:inherit;font-size:14px;font-weight:600;cursor:pointer}
   .icon-btn{background:none;border:none;color:var(--muted);width:32px;height:32px;border-radius:50%;display:grid;place-items:center;cursor:pointer;flex-shrink:0;transition:all .2s}
@@ -208,10 +222,10 @@
     .np-center { display: none; }
     
     /* MOBILE BUBBLE NAV */
-    .mobile-nav { grid-column: 1; grid-row: 3; display: flex; justify-content: space-around; align-items: center; border-radius: 20px; padding-bottom: env(safe-area-inset-bottom, 0); }
-    .m-nav-item { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; color: var(--muted); font-size: 10px; font-weight: 600; text-decoration: none; width: 100%; height: 100%; cursor: pointer; transition:all .3s var(--ease); border-radius:16px; margin:4px; }
+    .mobile-nav { grid-column: 1; grid-row: 3; display: flex; justify-content: space-around; align-items: center; border-radius: 20px; padding-bottom: env(safe-area-inset-bottom, 0); position: relative; }
+    .m-nav-item { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; color: var(--muted); font-size: 10px; font-weight: 600; text-decoration: none; width: 100%; height: 100%; cursor: pointer; transition:color .3s var(--ease); border-radius:16px; margin:4px; position:relative; z-index:2;}
     .m-nav-item svg { width: 20px; height: 20px; }
-    .m-nav-item.active { color: var(--accent); background:rgba(185,203,255,.15); box-shadow:inset 0 1px 0 rgba(255,255,255,.2); }
+    .m-nav-item.active { color: var(--accent); }
     
     .topbar { margin: 10px 10px 0; top: 10px; }
     .content { padding: 16px 10px 80px; }
@@ -368,6 +382,14 @@
     <div id="hubPreview" style="margin-top:20px; display:none; border-radius:12px; overflow:hidden; background:#000;">
       <!-- Iframe will be injected here -->
     </div>
+
+    <!-- TOMBOL DOWNLOAD DARI HUB -->
+    <div id="hubDlAction" style="display:none; margin-top:15px;">
+      <button class="hm-btn primary" id="hubDlBtn" style="width:100%; display:flex; align-items:center; justify-content:center; gap:8px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Unduh Audio MP3
+      </button>
+    </div>
     
     <div id="hubMessage" style="font-size:12px; color:var(--muted); margin-top:10px;"></div>
     
@@ -385,16 +407,15 @@
         <span class="brand-mark"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M9 3v11.6A3.5 3.5 0 1 0 11 18V8h7V3z"/></svg></span>
         <span class="brand-name">nys Xmusic</span>
       </div>
-      <a class="nav-item active" data-view="home"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.4 12 3l9 7.4V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span>Beranda</span></a>
-      <a class="nav-item" data-view="search"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20.5 20.5-3.6-3.6"/></svg><span>Cari (Audius)</span></a>
       
-      <!-- TOMBOL DOWNLOADER DESKTOP -->
-      <a class="nav-item" id="openDlModal" style="margin-top:10px; color:#1DB954;">
-        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-        <span>Download API</span>
-      </a>
-
-      <a class="nav-item" data-view="library"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5h4V21H3zM9 4.5h4V21H9zM15 4.5h3.4a1 1 0 0 1 1 .9L20.4 21h-3.9z"/></svg><span>Perpustakaan</span></a>
+      <div class="nav-container" id="desktopNav">
+        <div class="lens-bubble" id="desktopBubble"></div>
+        <a class="nav-item active" data-view="home"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.4 12 3l9 7.4V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span>Beranda</span></a>
+        <a class="nav-item" data-view="search"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20.5 20.5-3.6-3.6"/></svg><span>Cari</span></a>
+        <a class="nav-item" id="openDlModal" style="margin-top:10px; color:#1DB954;"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><span>Download API</span></a>
+        <a class="nav-item" data-view="library"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5h4V21H3zM9 4.5h4V21H9zM15 4.5h3.4a1 1 0 0 1 1 .9L20.4 21h-3.9z"/></svg><span>Perpustakaan</span></a>
+        <a class="nav-item" id="openHub" style="margin-top:10px;"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg><span>Hub Musik</span></a>
+      </div>
     </nav>
     <div class="glass side-lib">
       <div class="lib-head">
@@ -443,7 +464,8 @@
     </div>
   </footer>
 
-  <nav class="glass mobile-nav">
+  <nav class="glass mobile-nav" id="mobileNav">
+    <div class="lens-bubble" id="mobileBubble"></div>
     <a class="m-nav-item active" data-view="home">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.4 12 3l9 7.4V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>
       <span>Beranda</span>
@@ -452,13 +474,10 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20.5 20.5-3.6-3.6"/></svg>
       <span>Cari</span>
     </a>
-    
-    <!-- TOMBOL DOWNLOADER MOBILE -->
     <a class="m-nav-item" id="mobileOpenDl">
       <svg viewBox="0 0 24 24" fill="none" stroke="#1DB954" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
       <span style="color:#1DB954;">Download</span>
     </a>
-
     <a class="m-nav-item" data-view="library">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5h4V21H3zM9 4.5h4V21H9zM15 4.5h3.4a1 1 0 0 1 1 .9L20.4 21h-3.9z"/></svg>
       <span>Pustaka</span>
@@ -572,7 +591,7 @@ function audiusToTrack(t){
 }
 
 /* ========================================================
-   FITUR DOWNLOAD API (RAPIDAPI) - SIAP PAKAI!
+   FITUR DOWNLOAD API (RAPIDAPI)
    ======================================================== */
 const RAPIDAPI_KEY = "18f2f39b5emsh07bc8d281308cd9p1bb969jsne61e351bb861"; 
 const RAPIDAPI_HOST = "youtube-mp36.p.rapidapi.com";
@@ -594,7 +613,6 @@ $('#dmProcess').addEventListener('click', async () => {
   const url = $('#dlUrlInput').value.trim();
   if (!url) return showToast('Masukkan URL YouTube');
   
-  // Ambil ID Video dari URL YouTube
   let videoId = '';
   if (url.includes('youtu.be/')) videoId = url.split('youtu.be/')[1].split('?')[0];
   else if (url.includes('v=')) videoId = url.split('v=')[1].split('&')[0];
@@ -826,8 +844,39 @@ function renderMain(){
   if (state.view === 'profile') return renderProfileView();
   return renderHomeView(); 
 }
-function setView(v){ state.view = v; updateNavActive(); if (v === 'home'){ $('#search').value = ''; state.query = ''; } renderMain(); }
-function updateNavActive(){ $$('.nav-item, .m-nav-item').forEach(el => el.classList.toggle('active', el.dataset.view === state.view)); }
+function setView(v){ state.view = v; updateNavActive(); if (v === 'home'){ $('#search').value = ''; state.query = ''; } renderMain(); updateNavBubble(); }
+function updateNavActive(){ $$('.nav-item, .m-nav-item').forEach(el => el.classList.toggle('active', el.dataset.view === state.view)); updateNavBubble(); }
+
+function updateNavBubble() {
+  // Desktop Bubble
+  const dNav = $('#desktopNav');
+  const dActive = dNav.querySelector('.nav-item.active');
+  const dBubble = $('#desktopBubble');
+  if (dActive && dBubble && dNav) {
+    const cRect = dNav.getBoundingClientRect();
+    const aRect = dActive.getBoundingClientRect();
+    dBubble.style.opacity = 1;
+    dBubble.style.left = (aRect.left - cRect.left) + 'px';
+    dBubble.style.top = (aRect.top - cRect.top) + 'px';
+    dBubble.style.width = aRect.width + 'px';
+    dBubble.style.height = aRect.height + 'px';
+  }
+
+  // Mobile Bubble
+  const mNav = $('#mobileNav');
+  const mActive = mNav.querySelector('.m-nav-item.active');
+  const mBubble = $('#mobileBubble');
+  if (mActive && mBubble && mNav) {
+    const cRect = mNav.getBoundingClientRect();
+    const aRect = mActive.getBoundingClientRect();
+    mBubble.style.opacity = 1;
+    mBubble.style.left = (aRect.left - cRect.left) + 'px';
+    mBubble.style.top = (aRect.top - cRect.top) + 'px';
+    mBubble.style.width = aRect.width + 'px';
+    mBubble.style.height = aRect.height + 'px';
+  }
+}
+window.addEventListener('resize', updateNavBubble);
 
 /* PLAYER UI */
 function updatePlayUI(){
@@ -982,22 +1031,26 @@ function updateTopBarProfile() {
 }
 
 /* HUB MUSIK (Spotify / YouTube) */
-function openHub(){ $('#hubModal').classList.add('show'); }
-function closeHub(){ $('#hubModal').classList.remove('show'); $('#hubPreview').style.display = 'none'; $('#hubUrlInput').value = ''; }
+function openHub(){ $('#hubModal').classList.add('show'); $('#hubDlAction').style.display = 'none'; }
+function closeHub(){ $('#hubModal').classList.remove('show'); $('#hubPreview').style.display = 'none'; $('#hubUrlInput').value = ''; $('#hubDlAction').style.display = 'none'; }
 $('#openHub').addEventListener('click', openHub);
 $('#mobileOpenHub').addEventListener('click', openHub);
 $('#hmBackdrop').addEventListener('click', closeHub);
 $('#hmCancel').addEventListener('click', closeHub);
 
+let hubVideoId = '';
 $('#hmSave').addEventListener('click', () => {
   const url = $('#hubUrlInput').value.trim();
   if (!url) { showToast('Masukkan tautan'); return; }
   const preview = $('#hubPreview');
   const msg = $('#hubMessage');
+  const dlAction = $('#hubDlAction');
   
   preview.innerHTML = '';
   preview.style.display = 'block';
   msg.textContent = '';
+  dlAction.style.display = 'none';
+  hubVideoId = '';
 
   if (url.includes('spotify.com')) {
     const parts = url.split('/');
@@ -1010,19 +1063,55 @@ $('#hmSave').addEventListener('click', () => {
       msg.textContent = 'Tautan Spotify tidak valid.';
     }
   } else if (url.includes('youtube.com') || url.includes('youtu.be')) {
-    let videoId = '';
-    if (url.includes('youtu.be/')) videoId = url.split('youtu.be/')[1].split('?')[0];
-    else if (url.includes('v=')) videoId = url.split('v=')[1].split('&')[0];
+    if (url.includes('youtu.be/')) hubVideoId = url.split('youtu.be/')[1].split('?')[0];
+    else if (url.includes('v=')) hubVideoId = url.split('v=')[1].split('&')[0];
     
-    if (videoId) {
-      preview.innerHTML = `<iframe width="100%" height="200" src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+    if (hubVideoId) {
+      preview.innerHTML = `<iframe width="100%" height="200" src="https://www.youtube.com/embed/${hubVideoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
       msg.textContent = 'Berhasil memuat pemutar YouTube.';
+      dlAction.style.display = 'block';
     } else {
       msg.textContent = 'Tautan YouTube tidak valid.';
     }
   } else {
     msg.textContent = 'Tautan belum didukung. Gunakan tautan Spotify atau YouTube.';
     preview.style.display = 'none';
+  }
+});
+
+$('#hubDlBtn').addEventListener('click', async () => {
+  if (!hubVideoId) return showToast('Tidak ada video yang valid');
+  const btn = $('#hubDlBtn');
+  const originalHTML = btn.innerHTML;
+  btn.innerHTML = 'Memproses API...';
+  btn.disabled = true;
+
+  try {
+    const res = await fetch(`https://${RAPIDAPI_HOST}/dl?id=${hubVideoId}`, {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Key': RAPIDAPI_KEY,
+        'X-RapidAPI-Host': RAPIDAPI_HOST
+      }
+    });
+    const data = await res.json();
+    if (data.link) {
+      const a = document.createElement('a');
+      a.href = data.link;
+      a.download = data.title || 'audio.mp3';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      showToast('Unduhan dimulai!');
+    } else {
+      showToast('Gagal: ' + (data.msg || 'API tidak mengembalikan link.'));
+    }
+  } catch (error) {
+    console.error(error);
+    showToast('Terjadi kesalahan pada API.');
+  } finally {
+    btn.innerHTML = originalHTML;
+    btn.disabled = false;
   }
 });
 
@@ -1078,7 +1167,10 @@ if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navi
 (async function init(){ 
   await openDB(); 
   updateTopBarProfile();
-  renderSidebar(); renderMain(); updatePlayUI(); 
+  renderSidebar(); 
+  renderMain(); 
+  updatePlayUI(); 
+  setTimeout(updateNavBubble, 100); // Init Bubble
 })();
 </script>
 </body>
