@@ -46,14 +46,15 @@
   .brand-mark{width:32px;height:32px;border-radius:11px 11px 11px 4px;display:grid;place-items:center;flex-shrink:0;color:#0a0c12;background:linear-gradient(135deg,#b9cbff,#6366f1 60%,#d946ef);box-shadow:inset 0 1.5px 0 rgba(255,255,255,.6),0 8px 22px rgba(99,102,241,.45)}
   .brand-name{font-size:15px;font-weight:800;letter-spacing:-.02em;white-space:nowrap}
 
-  .nav-item{display:flex;align-items:center;gap:14px;padding:10px 14px;border-radius:999px;color:var(--muted);font-size:14px;font-weight:600;cursor:pointer;transition:color .25s var(--ease),background .25s var(--ease);text-decoration:none}
-  .nav-item:hover{color:#fff;background:rgba(255,255,255,.05)}
-  .nav-item.active{color:#fff;background:linear-gradient(135deg,rgba(185,203,255,.20),rgba(255,255,255,.06))}
+  /* Bubble Glass Navigation Items */
+  .nav-item{display:flex;align-items:center;gap:14px;padding:10px 14px;border-radius:999px;color:var(--muted);font-size:14px;font-weight:600;cursor:pointer;transition:all .3s var(--ease);text-decoration:none;background:transparent;border:1px solid transparent}
+  .nav-item:hover{color:#fff;background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1);backdrop-filter:blur(10px);box-shadow:inset 0 1px 0 rgba(255,255,255,.2)}
+  .nav-item.active{color:#fff;background:linear-gradient(135deg,rgba(185,203,255,.25),rgba(255,255,255,.08));border-color:rgba(255,255,255,.25);box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 4px 15px rgba(0,0,0,.2)}
   
   .lib-head{display:flex;align-items:center;justify-content:space-between;padding:2px 6px 10px 6px}
   .lib-title{display:flex;align-items:center;gap:12px;background:none;border:none;color:var(--muted);font:inherit;font-size:14px;font-weight:600;cursor:pointer}
-  .icon-btn{background:none;border:none;color:var(--muted);width:32px;height:32px;border-radius:50%;display:grid;place-items:center;cursor:pointer;flex-shrink:0}
-  .icon-btn:hover{color:#fff;background:rgba(255,255,255,.07)}
+  .icon-btn{background:none;border:none;color:var(--muted);width:32px;height:32px;border-radius:50%;display:grid;place-items:center;cursor:pointer;flex-shrink:0;transition:all .2s}
+  .icon-btn:hover{color:#fff;background:rgba(255,255,255,.1);backdrop-filter:blur(10px)}
   .lib-list{list-style:none;overflow-y:auto;flex:1;padding:0 4px 60px 0}
   .lib-item{display:flex;align-items:center;gap:12px;padding:7px 8px;border-radius:12px;cursor:pointer}
   .lib-item:hover{background:rgba(255,255,255,.06)}
@@ -145,26 +146,19 @@
   .db-btn{width:30px;height:30px;border-radius:50%;background:#fff;border:none;color:#0a0c12;display:grid;place-items:center;cursor:pointer;flex-shrink:0}
   .db-close{width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.15);border:none;color:#fff;display:grid;place-items:center;cursor:pointer;flex-shrink:0}
 
-  /* TRACK MODAL (Efek Nyatu / Overlay) */
+  /* TRACK MODAL */
   .track-modal{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:20px}
   .track-modal[hidden]{display:none}
   .tm-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.8);backdrop-filter:blur(26px)}
   .track-card{position:relative;width:min(340px,calc(100vw - 32px));border-radius:40px;background:#121212;box-shadow:0 40px 100px rgba(0,0,0,.7);overflow:hidden;display:flex;flex-direction:column;padding:0}
-  
-  /* Gambar Blur Latar */
   .tc-bg-blur{position:absolute;inset:-20px;background-size:cover;background-position:center;filter:blur(40px) brightness(0.6);z-index:0;transform:scale(1.1)}
-  
   .tc-content{position:relative;z-index:1;display:flex;flex-direction:column;padding:20px}
-  
-  /* Gambar Nyatu (Masking) */
   .tc-cover-wrapper{width:100%;aspect-ratio:1/1;border-radius:14px;overflow:hidden;position:relative;margin-bottom:-15px;display:grid;place-items:center;-webkit-mask-image:linear-gradient(to bottom, black 60%, transparent 100%);mask-image:linear-gradient(to bottom, black 60%, transparent 100%);}
   .tc-cover-wrapper img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
   .tc-cover-wrapper .local-cover-text{font-size:80px;font-weight:800;color:rgba(255,255,255,.9);position:relative;z-index:1}
-  
   .tc-header-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;margin-top:10px;z-index:2}
   .tc-device{font-size:11px;color:rgba(255,255,255,.6);text-transform:uppercase}
   .tc-close-btn{background:rgba(0,0,0,.5);border:none;border-radius:50%;width:28px;height:28px;display:grid;place-items:center;color:#fff;cursor:pointer;z-index:10}
-  
   .tc-title-text{font-size:22px;font-weight:800;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 2px 10px rgba(0,0,0,.5);z-index:2}
   .tc-artist-text{font-size:15px;color:rgba(255,255,255,.7);z-index:2}
   .tc-progress-wrap{margin-top:22px;display:flex;flex-direction:column;gap:6px;z-index:2}
@@ -178,30 +172,30 @@
   .tc-vol-bar-bg{flex:1;height:4px;background:rgba(255,255,255,.15);border-radius:2px;position:relative;cursor:pointer}
   .tc-vol-fill{position:absolute;left:0;top:0;bottom:0;background:#fff;border-radius:2px;width:72%}
 
-  /* UPLOAD & EDIT MODAL */
-  .upload-modal,.edit-modal{position:fixed;inset:0;z-index:210;display:none;align-items:center;justify-content:center;padding:20px}
-  .upload-modal.show,.edit-modal.show{display:flex}
-  .um-backdrop,.em-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.8);backdrop-filter:blur(20px)}
-  .um-card,.em-card{position:relative;width:min(440px,calc(100vw - 32px));background:#121212;border:1px solid rgba(255,255,255,.18);border-radius:28px;padding:26px 24px 22px;max-height:90vh;overflow-y:auto;}
-  .um-title,.em-title{font-size:20px;font-weight:800;margin-bottom:6px}
-  .um-sub,.em-sub{font-size:13px;color:var(--muted);margin-bottom:20px}
+  /* UPLOAD, EDIT, & HUB MODAL */
+  .upload-modal,.edit-modal,.hub-modal{position:fixed;inset:0;z-index:210;display:none;align-items:center;justify-content:center;padding:20px}
+  .upload-modal.show,.edit-modal.show,.hub-modal.show{display:flex}
+  .um-backdrop,.em-backdrop,.hm-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.8);backdrop-filter:blur(20px)}
+  .um-card,.em-card,.hm-card{position:relative;width:min(440px,calc(100vw - 32px));background:#121212;border:1px solid rgba(255,255,255,.18);border-radius:28px;padding:26px 24px 22px;max-height:90vh;overflow-y:auto;}
+  .um-title,.em-title,.hm-title{font-size:20px;font-weight:800;margin-bottom:6px}
+  .um-sub,.em-sub,.hm-sub{font-size:13px;color:var(--muted);margin-bottom:20px}
   .um-tabs{display:flex;gap:6px;margin-bottom:20px;background:rgba(0,0,0,.25);padding:4px;border-radius:14px}
   .um-tab{flex:1;padding:9px;border-radius:10px;background:transparent;border:none;color:var(--muted);font:inherit;font-size:13px;font-weight:600;cursor:pointer}
   .um-tab.active{background:rgba(255,255,255,.15);color:#fff}
   .um-panel{display:none}
   .um-panel.active{display:block}
-  .um-field,.em-field{margin-bottom:14px}
-  .um-label,.em-label{display:block;font-size:11px;font-weight:700;color:var(--muted-2);margin-bottom:6px}
-  .um-input,.em-input{width:100%;padding:12px 14px;background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.12);border-radius:12px;color:#fff;font:inherit;font-size:14px;outline:none}
+  .um-field,.em-field,.hm-field{margin-bottom:14px}
+  .um-label,.em-label,.hm-label{display:block;font-size:11px;font-weight:700;color:var(--muted-2);margin-bottom:6px}
+  .um-input,.em-input,.hm-input{width:100%;padding:12px 14px;background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.12);border-radius:12px;color:#fff;font:inherit;font-size:14px;outline:none}
   
   .um-drop{padding:20px;border:2px dashed rgba(255,255,255,.2);border-radius:16px;text-align:center;cursor:pointer;margin-bottom:12px;background:rgba(255,255,255,.02)}
   .um-drop:hover{background:rgba(255,255,255,.05)}
   .um-drop input{display:none}
   .um-note{font-size:11.5px;color:var(--muted-2);margin-top:12px;padding:10px 12px;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);border-radius:10px}
-  .um-actions,.em-actions{display:flex;gap:8px;margin-top:20px}
-  .um-btn,.em-btn{flex:1;padding:13px;border-radius:999px;border:none;font:inherit;font-size:13.5px;font-weight:700;cursor:pointer}
-  .um-btn.primary,.em-btn.primary{background:#1DB954;color:#03200e}
-  .um-btn.cancel,.em-btn.cancel{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.14)}
+  .um-actions,.em-actions,.hm-actions{display:flex;gap:8px;margin-top:20px}
+  .um-btn,.em-btn,.hm-btn{flex:1;padding:13px;border-radius:999px;border:none;font:inherit;font-size:13.5px;font-weight:700;cursor:pointer}
+  .um-btn.primary,.em-btn.primary,.hm-btn.primary{background:#1DB954;color:#03200e}
+  .um-btn.cancel,.em-btn.cancel,.hm-btn.cancel{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.14)}
 
   .fab{position:fixed;left:22px;bottom:120px;z-index:120;width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#b9cbff,#6366f1 62%,#d946ef);color:#0a0c12;display:grid;place-items:center;cursor:pointer}
 
@@ -213,10 +207,11 @@
     .player { grid-column: 1; grid-row: 2; border-radius: 20px; grid-template-columns: 1fr auto; padding: 0 10px; }
     .np-center { display: none; }
     
+    /* MOBILE BUBBLE NAV */
     .mobile-nav { grid-column: 1; grid-row: 3; display: flex; justify-content: space-around; align-items: center; border-radius: 20px; padding-bottom: env(safe-area-inset-bottom, 0); }
-    .m-nav-item { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; color: var(--muted); font-size: 10px; font-weight: 600; text-decoration: none; width: 100%; height: 100%; cursor: pointer; }
+    .m-nav-item { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; color: var(--muted); font-size: 10px; font-weight: 600; text-decoration: none; width: 100%; height: 100%; cursor: pointer; transition:all .3s var(--ease); border-radius:16px; margin:4px; }
     .m-nav-item svg { width: 20px; height: 20px; }
-    .m-nav-item.active { color: var(--accent); }
+    .m-nav-item.active { color: var(--accent); background:rgba(185,203,255,.15); box-shadow:inset 0 1px 0 rgba(255,255,255,.2); }
     
     .topbar { margin: 10px 10px 0; top: 10px; }
     .content { padding: 16px 10px 80px; }
@@ -249,20 +244,16 @@
   <div class="track-card">
     <div class="tc-bg-blur" id="tcBgBlur"></div>
     <div class="tc-content">
-      
       <div class="tc-header-row">
         <span class="tc-device">iPhone</span>
         <button class="tc-close-btn" id="tcClose"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
       </div>
-
       <div class="tc-cover-wrapper" id="tcCoverWrap">
         <img id="tcCoverImg" src="" alt="Cover">
         <div id="tcLocalCover" class="local-cover-text" style="display:none;"></div>
       </div>
-      
       <div class="tc-title-row"><div class="tc-title-text" id="tcTitle">Judul Lagu</div></div>
       <div class="tc-artist-row"><div class="tc-artist-text" id="tcArtist">Nama Artis</div></div>
-      
       <div class="tc-progress-wrap">
         <div class="tc-time-labels"><span id="tcCurTime">0:00</span><span id="tcRemTime">-0:00</span></div>
         <div class="tc-prog-bar-bg" id="tcProgBg"><div class="tc-prog-fill" id="tcProgFill"></div></div>
@@ -320,7 +311,6 @@
   <div class="em-card">
     <div class="em-title">Edit Profil</div>
     <div class="em-sub">Ubah informasi profil kamu.</div>
-    
     <div class="em-field" style="text-align:center;">
       <div class="profile-avatar" id="emAvatarPreview" style="margin:0 auto 12px; width:80px; height:80px; font-size:30px;"></div>
       <label class="em-btn primary" style="display:inline-block; width:auto; padding:8px 16px; border-radius:99px; cursor:pointer;">
@@ -328,14 +318,37 @@
         <input type="file" id="emImageInput" accept="image/*" style="display:none;">
       </label>
     </div>
-
     <div class="em-field"><label class="em-label">Nama</label><input class="em-input" id="emName" type="text"></div>
     <div class="em-field"><label class="em-label">Username</label><input class="em-input" id="emHandle" type="text"></div>
     <div class="em-field"><label class="em-label">Bio</label><input class="em-input" id="emBio" type="text"></div>
-    
     <div class="em-actions">
       <button class="em-btn cancel" id="emCancel">Batal</button>
       <button class="em-btn primary" id="emSave">Simpan</button>
+    </div>
+  </div>
+</div>
+
+<!-- HUB MUSIK MODAL -->
+<div class="hub-modal" id="hubModal">
+  <div class="hm-backdrop" id="hmBackdrop"></div>
+  <div class="hm-card">
+    <div class="hm-title">Hub Musik (Spotify & YouTube)</div>
+    <div class="hm-sub">Tempel tautan Spotify atau YouTube. Aplikasi akan menampilkannya sebagai pemutar.</div>
+    
+    <div class="hm-field">
+      <label class="hm-label">Tautan (URL)</label>
+      <input class="hm-input" id="hubUrlInput" type="url" placeholder="https://open.spotify.com/... atau https://youtube.com/...">
+    </div>
+    
+    <div id="hubPreview" style="margin-top:20px; display:none; border-radius:12px; overflow:hidden; background:#000;">
+      <!-- Iframe will be injected here -->
+    </div>
+    
+    <div id="hubMessage" style="font-size:12px; color:var(--muted); margin-top:10px;"></div>
+    
+    <div class="hm-actions">
+      <button class="hm-btn cancel" id="hmCancel">Tutup</button>
+      <button class="hm-btn primary" id="hmSave">Buka Tautan</button>
     </div>
   </div>
 </div>
@@ -350,6 +363,7 @@
       <a class="nav-item active" data-view="home"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10.4 12 3l9 7.4V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span>Beranda</span></a>
       <a class="nav-item" data-view="search"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20.5 20.5-3.6-3.6"/></svg><span>Cari</span></a>
       <a class="nav-item" data-view="library"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5h4V21H3zM9 4.5h4V21H9zM15 4.5h3.4a1 1 0 0 1 1 .9L20.4 21h-3.9z"/></svg><span>Perpustakaan</span></a>
+      <a class="nav-item" id="openHub" style="margin-top:10px;"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg><span>Hub Musik</span></a>
     </nav>
     <div class="glass side-lib">
       <div class="lib-head">
@@ -407,6 +421,10 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20.5 20.5-3.6-3.6"/></svg>
       <span>Cari</span>
     </a>
+    <a class="m-nav-item" id="mobileOpenHub">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+      <span>Hub</span>
+    </a>
     <a class="m-nav-item" data-view="library">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 4.5h4V21H3zM9 4.5h4V21H9zM15 4.5h3.4a1 1 0 0 1 1 .9L20.4 21h-3.9z"/></svg>
       <span>Pustaka</span>
@@ -435,7 +453,6 @@ function fmt(sec){ if (!isFinite(sec) || sec < 0) sec = 0; sec = Math.floor(sec)
 function esc(str){ return String(str).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
 function greeting(){ const h = new Date().getHours(); if (h < 11) return "Selamat pagi"; if (h < 15) return "Selamat siang"; if (h < 19) return "Selamat sore"; return "Selamat malam"; }
 
-// Helper: File ke Base64
 function fileToBase64(file) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -445,7 +462,6 @@ function fileToBase64(file) {
   });
 }
 
-// CSS Cover untuk Lagu Lokal tanpa gambar
 function getLocalCoverStyle(track) {
   const c1 = track.c1 || '#6366f1';
   const c2 = track.c2 || '#1e1b4b';
@@ -561,7 +577,7 @@ async function renderHomeView(){
   const localWithUrl = localTracks.map(t => ({
     ...t, 
     url: t.blob ? URL.createObjectURL(t.blob) : t.url, 
-    imageUrl: t.coverBlob ? URL.createObjectURL(t.coverBlob) : null, // Ambil gambar dari IndexedDB
+    imageUrl: t.coverBlob ? URL.createObjectURL(t.coverBlob) : null,
     source: 'local'
   }));
   tracks = [...localWithUrl, ...trending];
@@ -688,7 +704,7 @@ function renderProfileView() {
       <div class="section-head"><h2>Pengaturan</h2></div>
       <div style="background:rgba(255,255,255,.05); padding:16px; border-radius:12px; border:1px solid rgba(255,255,255,.1);">
         <div style="font-size:14px; font-weight:600;">Versi Aplikasi</div>
-        <div style="font-size:12px; color:var(--muted); margin-top:2px;">1.2.0 (Custom Art & Profile)</div>
+        <div style="font-size:12px; color:var(--muted); margin-top:2px;">1.3.0 (Bubble Glass & Hub)</div>
       </div>
     </section>
   `;
@@ -760,8 +776,6 @@ function updateDynamicBar(){
 /* TRACK MODAL */
 function showTrackModal(track){
   state.modalTrackId = track.id;
-  const modal = $('#trackModal');
-  
   if (track.imageUrl) {
     $('#tcCoverImg').src = track.imageUrl; $('#tcCoverImg').style.display = 'block';
     $('#tcLocalCover').style.display = 'none';
@@ -773,10 +787,9 @@ function showTrackModal(track){
     $('#tcBgBlur').style.backgroundImage = `linear-gradient(135deg, ${track.c1||'#6366f1'}, ${track.c2||'#1e1b4b'})`;
     $('#tcCoverWrap').style.cssText = getLocalCoverStyle(track);
   }
-
   $('#tcTitle').textContent = track.title; $('#tcArtist').textContent = track.artist;
   updateModalPlayState(); updateModalTime(); updateModalProgress(getPosition(), getDuration());
-  modal.hidden = false;
+  $('#trackModal').hidden = false;
 }
 function updateModalPlayState(){ $('#tcPlayPause').innerHTML = (state.current && state.modalTrackId === state.current.id && state.playing) ? ICON_PAUSE_BIG : ICON_PLAY_BIG; }
 function updateModalTime(){ const dur = getDuration(), pos = getPosition(); $('#tcCurTime').textContent = fmt(pos); $('#tcRemTime').textContent = '-' + fmt(Math.max(0, dur - pos)); }
@@ -805,7 +818,6 @@ dropZone.addEventListener('click', () => fileInput.click());
 dropZone.addEventListener('drop', async e => { e.preventDefault(); await handleFiles([...e.dataTransfer.files]); });
 fileInput.addEventListener('change', async e => { await handleFiles([...e.target.files]); });
 
-// Cover Input Logic
 const coverDropZone = $('#coverDropZone'), coverInput = $('#coverInput');
 coverDropZone.addEventListener('click', (e) => { if(e.target.tagName !== 'INPUT') coverInput.click(); });
 coverInput.addEventListener('change', (e) => {
@@ -831,15 +843,9 @@ async function handleFiles(files){
       imageUrl: null, 
       dur: 0, source: 'local', artistPhoto: null 
     };
-    
-    // Jika ada gambar yang dipilih, masukkan ke dalam database
-    if (pendingCoverFile) {
-      newTrack.coverBlob = pendingCoverFile;
-    }
-    
+    if (pendingCoverFile) newTrack.coverBlob = pendingCoverFile;
     await saveLocalTrack(newTrack);
   }
-  
   showToast(`${audioFiles.length} lagu ditambahkan!`);
   closeUpload(); setView('library');
 }
@@ -851,7 +857,7 @@ $('#umSave').addEventListener('click', async () => {
   showToast('URL ditambahkan'); closeUpload(); setView('library');
 });
 
-// Edit Profile Logic
+// Edit Profile
 let pendingProfileFile = null;
 $('#emImageInput').addEventListener('change', async (e) => {
   if (e.target.files.length > 0) {
@@ -864,35 +870,68 @@ $('#emImageInput').addEventListener('change', async (e) => {
     pendingProfileFile = base64;
   }
 });
-
 $('#emBackdrop').addEventListener('click', () => $('#editModal').classList.remove('show')); 
 $('#emCancel').addEventListener('click', () => $('#editModal').classList.remove('show'));
 $('#emSave').addEventListener('click', () => {
   const name = $('#emName').value.trim() || 'Nys'; 
   const handle = $('#emHandle').value.trim() || '@nysxmusic'; 
   const bio = $('#emBio').value.trim() || 'Tidak ada bio.';
-  
   userProfile = { name, handle, bio, image: pendingProfileFile || userProfile.image };
   localStorage.setItem('nys_profile', JSON.stringify(userProfile));
-  
-  $('#editModal').classList.remove('show'); 
-  showToast('Profil diperbarui!'); 
-  renderProfileView(); 
-  updateTopBarProfile();
-  pendingProfileFile = null;
+  $('#editModal').classList.remove('show'); showToast('Profil diperbarui!'); renderProfileView(); updateTopBarProfile(); pendingProfileFile = null;
 });
-
 function updateTopBarProfile() {
   const btn = $('#topProfileBtn');
-  if (userProfile.image) {
-    btn.textContent = '';
-    btn.style.backgroundImage = `url(${userProfile.image})`;
-    btn.style.backgroundSize = 'cover';
-  } else {
-    btn.textContent = userProfile.name[0].toUpperCase();
-    btn.style.backgroundImage = 'none';
-  }
+  if (userProfile.image) { btn.textContent = ''; btn.style.backgroundImage = `url(${userProfile.image})`; btn.style.backgroundSize = 'cover'; } 
+  else { btn.textContent = userProfile.name[0].toUpperCase(); btn.style.backgroundImage = 'none'; }
 }
+
+/* HUB MUSIK (Spotify / YouTube) */
+function openHub(){ $('#hubModal').classList.add('show'); }
+function closeHub(){ $('#hubModal').classList.remove('show'); $('#hubPreview').style.display = 'none'; $('#hubUrlInput').value = ''; }
+$('#openHub').addEventListener('click', openHub);
+$('#mobileOpenHub').addEventListener('click', openHub);
+$('#hmBackdrop').addEventListener('click', closeHub);
+$('#hmCancel').addEventListener('click', closeHub);
+
+$('#hmSave').addEventListener('click', () => {
+  const url = $('#hubUrlInput').value.trim();
+  if (!url) { showToast('Masukkan tautan'); return; }
+  const preview = $('#hubPreview');
+  const msg = $('#hubMessage');
+  
+  preview.innerHTML = '';
+  preview.style.display = 'block';
+  msg.textContent = '';
+
+  if (url.includes('spotify.com')) {
+    // Spotify Embed API (iframe)
+    const parts = url.split('/');
+    const type = parts[3]; // track, album, playlist
+    const id = parts[4]?.split('?')[0];
+    if (type && id) {
+      preview.innerHTML = `<iframe style="border-radius:12px" src="https://open.spotify.com/embed/${type}/${id}?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
+      msg.textContent = 'Berhasil memuat pemutar Spotify.';
+    } else {
+      msg.textContent = 'Tautan Spotify tidak valid.';
+    }
+  } else if (url.includes('youtube.com') || url.includes('youtu.be')) {
+    // YouTube IFrame API
+    let videoId = '';
+    if (url.includes('youtu.be/')) videoId = url.split('youtu.be/')[1].split('?')[0];
+    else if (url.includes('v=')) videoId = url.split('v=')[1].split('&')[0];
+    
+    if (videoId) {
+      preview.innerHTML = `<iframe width="100%" height="200" src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+      msg.textContent = 'Berhasil memuat pemutar YouTube.';
+    } else {
+      msg.textContent = 'Tautan YouTube tidak valid.';
+    }
+  } else {
+    msg.textContent = 'Tautan belum didukung. Gunakan tautan Spotify atau YouTube.';
+    preview.style.display = 'none';
+  }
+});
 
 /* EVENTS */
 document.addEventListener('click', e => {
